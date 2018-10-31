@@ -1,0 +1,96 @@
+<!doctype html>
+
+<html lang="en-US">
+<head>
+    <link href="Main.css" rel="stylesheet" type="text/css">  
+    <script>// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
+    </script>
+</head>
+    
+<body>
+    <div class="container bg" id="home"> 
+    <section class="mainImage">
+    <nav>
+    <ul>
+        <li><a href="igg.me/at/earth20" class="nav Navbtn" id="donation">DONATE</a></li>
+        <li><a href="#letters" class = "nav underline">LETTERS</a></li>
+        <li><a href="#Story" class = "nav underline">ABOUT</a></li> 
+    </ul>
+    </nav>
+        <div class="containerText"> 
+            <p class="text" style="top:90vh">A Martian avian specialist must choose between his family and humanity.</p>
+        
+        </div>
+
+        <span>
+            <img class="logo" src="Earth2.0-Logo-New-02.png">
+        </span>
+    </section>
+    </div>
+    
+    <div class="containerText" id="story"> 
+        <p class="text" id="Story" style="top: 180vh;">Earth 2.0 is the story of a man who leaves his family behind to travel to Mars to pursue his life’s work in the fight to preserve humanity. Wyatt’s program will be the first to put self-sustaining life, in the form of birds, on Mars.<br><br>
+        
+        After missing years of his daughter's childhood and withstanding years of failure, Wyatt is ready to return to Earth. With his research and psyche exhausted, it would seem all that’s keeping him alive are corporate investors and a last bit of hope in his last shipment of birds.<br><br> 
+            
+        Wyatt’s heart is set on home.<br><br>
+            
+        See visual concepts of the film in the look book:<br>
+            <a href = "https://rormsby3.myportfolio.com/earth-20-look-book">LookBook</a></p>
+    </div>
+    
+    <div class="containerText"> 
+        <p class="text bottomText" id="letters" >Two years ago I wrote a story with values of loss, loneliness, and family at its core. Born out of painful personal experiences and a fascination with what lies beyond our little sphere, I wrote a story that is important to me and that I believe could be important to you. Over the years and these past few months, the story and its characters have changed and evolved, growing into something more beautiful than I could have ever expected.<br><br>
+            
+        As my thesis film for Montclair State University, this is the largest project that I’ve ever undertaken. But, with my sophisticated and dedicated team of fellow filmmakers and professors standing behind me, I bring this story to you. With your support and with your belief in me and this story, I can make the dream world of Earth 2.0 a reality.<br><br>
+            
+        <em>Thank you,</em><br>
+        Richard S. Ormsby<br>
+        Writer/Director</p>
+    </div>
+    
+    <a href="igg.me/at/earth20" class="btn" id="donation">DONATE</a>
+    <div class="containerText"> 
+        <p class="textCitation">
+        Artwork by Emily Louka // @silentwaves7 // https://www.emilylouka.com<br>
+        Website by Kevin Weinpel // @kevin_weinpel // https://www.kevinweinpel.com
+        </p>
+    </div>
+</body>
+
+</html>
